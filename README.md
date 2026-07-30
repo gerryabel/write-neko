@@ -91,10 +91,10 @@ saved_articles/     # Data runtime lokal: DB, markdown exports, templates
 
 | Halaman | Deskripsi |
 | --- | --- |
-| ![](docs/screenshoots/generate.png) | Generate artikel dengan presets |
-| ![](docs/screenshoots/rewrite.png) | Rewrite konten dengan penyesuaian tone/keyword |
+| ![](docs/screenshots/generate.png) | Generate artikel dengan presets |
+| ![](docs/screenshots/rewrite.png) | Rewrite konten dengan penyesuaian tone/keyword |
 
-Screenshot disimpan di `docs/screenshoots/`.
+Screenshot disimpan di `docs/screenshots/`.
 
 ## Catatan teknis
 
