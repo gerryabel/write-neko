@@ -31,7 +31,19 @@ export default function HistoryPage() {
 
   async function load() {
     const res = await fetch(`/api/history?sort=${sortAsc ? "asc" : "desc"}${query ? `&q=${encodeURIComponent(query)}` : ""}${showFavoritesOnly ? "&favorite=1" : ""}`, { cache: "no-store" });
-    const data = await res.json();
+    if (!res.ok) {
+      setItems([]);
+      setSelected(null);
+      return;
+    }
+    const text = await res.text();
+    if (!text.trim()) {
+      setItems([]);
+      setSelected(null);
+      return;
+    }
+    let data;
+    try { data = JSON.parse(text); } catch { setItems([]); setSelected(null); return; }
     setItems(data.items ?? []);
     const first = (data.items ?? [])[0] ?? null;
     if (first?.id) {
