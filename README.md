@@ -1,6 +1,6 @@
 # Write Neko
 
-Penyimpanan data dilakukan secara lokal, sementara inferensi AI menggunakan OpenRouter. Generate, rewrite, lanjutkan, analisis SEO, dan kelola artikel langsung dari browser dengan data tetap ada di workspace kamu.
+Write Neko adalah asisten menulis AI berbasis web yang menyimpan data secara lokal dan menggunakan OpenRouter untuk inferensi AI. Generate, rewrite, lanjutkan, analisis SEO, dan kelola artikel dalam satu workspace.
 
 [Repo GitHub](https://github.com/gerryabel/write-neko)
 
@@ -57,9 +57,11 @@ Buka [http://localhost:3000](http://localhost:3000).
 
 Buka `/settings` dan simpan API key OpenRouter serta model yang ingin dipakai. Nilai-nilai ini disimpan secara lokal di `saved_articles/articles.db`.
 
-### Keamanan data lokal
+## Data & privasi
 
-`articles.db`, file artikel `.md`, templates, dan file runtime lain di bawah `saved_articles/` adalah data workspace lokal. Jangan commit file-file tersebut. Kalau perlu, tambahkan `saved_articles/` ke `.gitignore` sebelum membagikan atau mempublikasikan repo ini.
+- Artikel, template, dan pengaturan aplikasi disimpan di workspace lokal.
+- AI inference dilakukan melalui OpenRouter; request dikirim keluar sesuai konfigurasi API key/model.
+- File runtime di bawah `saved_articles/` tidak ditrack Git dan sebaiknya tidak dibagikan.
 
 ## Script npm
 
@@ -89,11 +91,10 @@ saved_articles/     # Data runtime lokal: DB, markdown exports, templates
 
 | Halaman | Deskripsi |
 | --- | --- |
-| ![](docs/screenshots/generate.png) | Halaman generate dengan presets dan editor |
-| ![](docs/screenshots/history.png) | History dengan pencarian, sorting, preview, copy/download |
-| ![](docs/screenshots/settings.png) | Pengaturan API key dan model |
+| ![](docs/screenshoots/generate.png) | Generate artikel dengan presets |
+| ![](docs/screenshoots/rewrite.png) | Rewrite konten dengan penyesuaian tone/keyword |
 
-Jika kamu menambahkan screenshot, letakkan di `docs/screenshots/` dan pertimbangkan ukuran file agar tetap ringan.
+Screenshot disimpan di `docs/screenshoots/`.
 
 ## Catatan teknis
 
@@ -101,7 +102,7 @@ Jika kamu menambahkan screenshot, letakkan di `docs/screenshots/` dan pertimbang
 - Beberapa API route menyetel `X-Content-Type-Options: nosniff`.
 - Project ini tidak menggunakan autentikasi eksternal.
 
-## Known limitations
+## Batasan
 
 - Data tetap di workspace lokal; tidak ada sinkronisasi antar perangkat.
 - Kualitas generate bergantung pada model OpenRouter yang dipakai dan penulisan prompt.
